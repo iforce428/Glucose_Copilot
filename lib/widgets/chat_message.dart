@@ -77,8 +77,8 @@ class ChatMessage extends StatelessWidget {
         child: isUser
             ? const CircleAvatar(
                 radius: 16,
-                backgroundImage: NetworkImage(
-                  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-sYiAsCAwiWPMZPN9U6ZHGt2U7gkDAh.png',
+                backgroundImage: AssetImage(
+                  'assets/profile_pic.png',
                 ),
               )
             : const Icon(
