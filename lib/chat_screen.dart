@@ -3,6 +3,8 @@ import 'models/message.dart';
 import 'widgets/chat_message.dart';
 import 'widgets/message_input.dart';
 import 'widgets/action_buttons.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
@@ -63,130 +65,62 @@ class _ChatScreenState extends State<ChatScreen> {
     
     _scrollToBottom();
   }
-  
-  void _handleUserMessage(String text) {
-    // Simple pattern matching for demo purposes
-    if (text.toLowerCase().contains('blood glucose') || 
-        text.toLowerCase().contains('sugar level')) {
-      _addBotMessage(
-        "Hi Husna. Your blood glucose level today is 7.8 mmol/L, which is slightly above the target range. Consider a balanced meal and some light activity to help regulate it today.",
-        [
-          ActionButton(
-            label: "Recommended Meal",
-            onTap: () => _handleActionButtonTap("Recommended Meal"),
-          ),
-          ActionButton(
-            label: "Schedule Workout",
-            onTap: () => _handleActionButtonTap("Schedule Workout"),
-          ),
-          ActionButton(
-            label: "Check Medication",
-            onTap: () => _handleActionButtonTap("Check Medication"),
-          ),
-        ],
+
+
+
+  void _handleUserMessage(String text) async {
+    const url = "https://iforce428.app.n8n.cloud/webhook/c8aebe2f-2d73-45af-82b9-947f137e74dd/chat";
+
+    final Map<String, dynamic> body = {
+      "chatInput": text,
+      "sessionId": "123",
+      "action": "sendMessage",
+      "user_id": "8e29e45d-7071-4307-9f18-a01db05f0991",
+    };
+
+    try {
+      final response = await http.post(
+        Uri.parse(url),
+        headers: {"Content-Type": "application/json"},
+        body: jsonEncode(body),
       );
-    } else if (text.toLowerCase().contains('medication') || 
-              text.toLowerCase().contains('medicine')) {
-      _addBotMessage(
-        "Your current medication schedule includes Metformin 500mg twice daily. Your next dose is due at 8:00 PM.",
-        [
-          ActionButton(
-            label: "Medication Details",
-            onTap: () => _handleActionButtonTap("Medication Details"),
-          ),
-          ActionButton(
-            label: "Set Reminder",
-            onTap: () => _handleActionButtonTap("Set Reminder"),
-          ),
-        ],
-      );
-    } else if (text.toLowerCase().contains('exercise') || 
-              text.toLowerCase().contains('workout')) {
-      _addBotMessage(
-        "Based on your glucose levels, I recommend 30 minutes of moderate walking today. This can help lower your blood glucose and improve insulin sensitivity.",
-        [
-          ActionButton(
-            label: "View Exercise Plan",
-            onTap: () => _handleActionButtonTap("View Exercise Plan"),
-          ),
-          ActionButton(
-            label: "Log Activity",
-            onTap: () => _handleActionButtonTap("Log Activity"),
-          ),
-        ],
-      );
-    } else {
-      _addBotMessage(
-        "I'm here to help with your health management. You can ask about your blood glucose levels, medication schedule, or exercise recommendations.",
-        null,
-      );
+
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> data = jsonDecode(response.body);
+
+        // Extracting the nested output object
+        final outputData = data["output"];
+        if (outputData == null || outputData["output"] == null) {
+          _addBotMessage("Invalid response from server.", null);
+          return;
+        }
+
+        String botReply = outputData["output"];
+        List<ActionButton>? actionButtons;
+
+        if (outputData.containsKey("buttons") && outputData["buttons"] is List) {
+          actionButtons = (outputData["buttons"] as List).map<ActionButton>((btn) {
+            return ActionButton(
+              label: btn["label"] ?? "Button",
+              onTap: () => _handleActionButtonTap(btn["label"]),
+            );
+          }).toList();
+        }
+
+        _addBotMessage(botReply, actionButtons);
+      } else {
+        _addBotMessage("Error: Unable to fetch response. Please try again.", null);
+      }
+    } catch (e) {
+      _addBotMessage("Network error: ${e.toString()}", null);
     }
   }
-  
+
   void _handleActionButtonTap(String action) {
-    switch (action) {
-      case "Recommended Meal":
-        _addBotMessage(
-          "Here's a balanced meal plan for today:\n\n"
-          "Breakfast: Greek yogurt with berries and nuts\n"
-          "Lunch: Grilled chicken salad with olive oil dressing\n"
-          "Dinner: Baked salmon with roasted vegetables\n"
-          "Snacks: Apple slices with almond butter",
-          [
-            ActionButton(
-              label: "Save Meal Plan",
-              onTap: () => _handleActionButtonTap("Save Meal Plan"),
-            ),
-            ActionButton(
-              label: "Adjust Portions",
-              onTap: () => _handleActionButtonTap("Adjust Portions"),
-            ),
-          ],
-        );
-        break;
-      case "Schedule Workout":
-        _addBotMessage(
-          "I've created a workout schedule for you:\n\n"
-          "Today: 30 min walking\n"
-          "Tomorrow: 20 min strength training\n"
-          "Day after: 30 min swimming or cycling",
-          [
-            ActionButton(
-              label: "Add to Calendar",
-              onTap: () => _handleActionButtonTap("Add to Calendar"),
-            ),
-            ActionButton(
-              label: "Modify Workout",
-              onTap: () => _handleActionButtonTap("Modify Workout"),
-            ),
-          ],
-        );
-        break;
-      case "Check Medication":
-        _addBotMessage(
-          "Your current medication:\n\n"
-          "Metformin 500mg - Take twice daily with meals\n"
-          "Next dose: Today at 8:00 PM\n"
-          "Refill needed in: 7 days",
-          [
-            ActionButton(
-              label: "Set Reminder",
-              onTap: () => _handleActionButtonTap("Set Reminder"),
-            ),
-            ActionButton(
-              label: "Request Refill",
-              onTap: () => _handleActionButtonTap("Request Refill"),
-            ),
-          ],
-        );
-        break;
-      default:
-        _addBotMessage(
-          "I've processed your request for: $action. This feature would be fully implemented in the complete app.",
-          null,
-        );
-    }
+    _addMessage(action, true); // Show user’s choice in chat
+    _handleUserMessage(action); // Send button action as new message
   }
+
   
   void _scrollToBottom() {
     Future.delayed(const Duration(milliseconds: 100), () {
