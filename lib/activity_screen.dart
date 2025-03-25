@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:flutter/cupertino.dart';
+import 'widgets/app_footer.dart';
 
 class ActivityScreen extends StatefulWidget {
   const ActivityScreen({super.key});
@@ -43,7 +44,14 @@ class _ActivityScreenState extends State<ActivityScreen> with SingleTickerProvid
           ),
         ),
       ),
-      bottomNavigationBar: _buildBottomNavBar(context),
+      bottomNavigationBar: AppFooter(
+        currentIndex: 0,
+        onTap: (index) {
+          if (index == 0) {
+            Navigator.pop(context);
+          }
+        },
+      ),
     );
   }
 

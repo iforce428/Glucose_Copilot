@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:image_picker/image_picker.dart';
 import 'food_analysis_screen.dart';
+import 'widgets/app_footer.dart';
 
 class FoodScannerScreen extends StatefulWidget {
   const FoodScannerScreen({super.key});

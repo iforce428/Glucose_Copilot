@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:timeline_tile/timeline_tile.dart';
+import 'widgets/app_footer.dart';
 
 class MedicationScreen extends StatefulWidget {
   const MedicationScreen({super.key});
@@ -101,7 +102,14 @@ class _MedicationScreenState extends State<MedicationScreen> with SingleTickerPr
           ),
         ),
       ),
-      bottomNavigationBar: _buildBottomNavBar(context),
+      bottomNavigationBar: AppFooter(
+        currentIndex: 0,
+        onTap: (index) {
+          if (index == 0) {
+            Navigator.pop(context);
+          }
+        },
+      ),
     );
   }
 
@@ -931,60 +939,4 @@ Widget _buildMedicationInformation() {
   );
 }
 
-  Widget _buildBottomNavBar(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: const Color(0xFF0ABAB5),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            blurRadius: 10,
-            offset: const Offset(0, -5),
-          ),
-        ],
-      ),
-      child: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              _buildNavItem(Icons.home, 'Home', false, onTap: () {
-                Navigator.pop(context);
-              }),
-              _buildNavItem(Icons.grid_view, 'Dashboard', false),
-              _buildNavItem(Icons.auto_awesome, 'Features', false),
-              _buildNavItem(Icons.medical_services_outlined, 'Health', false),
-              _buildNavItem(Icons.person_outline, 'Profile', false),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildNavItem(IconData icon, String label, bool isSelected, {VoidCallback? onTap}) {
-    return InkWell(
-      onTap: onTap,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(
-            icon,
-            color: isSelected ? Colors.white : Colors.white.withOpacity(0.7),
-            size: 20,
-          ),
-          const SizedBox(height: 2),
-          Text(
-            label,
-            style: TextStyle(
-              color: isSelected ? Colors.white : Colors.white.withOpacity(0.7),
-              fontSize: 10,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
 }
-

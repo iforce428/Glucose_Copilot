@@ -3,6 +3,8 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'food_scanner_screen.dart';
+import 'widgets/app_footer.dart';
+
 
 class DietaryScreen extends StatelessWidget {
   const DietaryScreen({super.key});
@@ -25,7 +27,14 @@ class DietaryScreen extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: _buildBottomNavBar(context),
+      bottomNavigationBar: AppFooter(
+        currentIndex: 0,
+        onTap: (index) {
+          if (index == 0) {
+            Navigator.pop(context);
+          }
+        },
+      ),
     );
   }
 
