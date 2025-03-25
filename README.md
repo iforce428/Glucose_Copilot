@@ -1,44 +1,41 @@
-
 # Glucose Copilot
-Introducing Glucose CoPilot! An AI-powered mobile app for diabetic patient support in Malaysia. Glucose CoPilot integrates three expert agents for an effective yet holistic disease management approach. The core AI assistant provides real-time insights and personalized recommendations for users. Knowing exactly when and how to treat diabetics in the most suitable way.
-
-
+Introducing **Glucose CoPilot**! An AI-powered mobile app for diabetic patient support in Malaysia. Glucose CoPilot integrates three expert agents for an effective and holistic disease management approach. The core AI assistant provides real-time insights and personalized recommendations, ensuring users know exactly when and how to manage their diabetes effectively.
 
 ## Features
-- Monitor live glucose
-- Personal AI-powered meal planning system
-- AI  vision system for detecting food's glycemic level
-- AI-powered physical activity planner
-- AI-powered medication tracker, reminder, and consultant
-- Gamification for user retention using reward redemption
-
+- 📊 **Monitor live glucose**
+- 🍽️ **Personal AI-powered meal planning system**
+- 📷 **AI vision system for detecting food's glycemic level**
+- 🏋️ **AI-powered physical activity planner**
+- 💊 **AI-powered medication tracker, reminder, and consultant**
+- 🎮 **Gamification for user retention using reward redemption**
 
 ## Screenshots
 
-![App Screenshot](assets/README/Loading_Page.png)
-![App Screenshot](assets/README/CGM.png)
-![App Screenshot](assets/README/Dashboard.png)
-![App Screenshot](assets/README/Dietary.png)
-![App Screenshot](assets/README/AI_Vision.png)
-![App Screenshot](assets/README/Medication.png)
-![App Screenshot](assets/README/Activity.png)
-![App Screenshot](assets/README/Reward.png)
-
+<p align="center">
+  <img src="assets/README/Loading_Page.png" width="250">
+  <img src="assets/README/CGM.png" width="250">
+  <img src="assets/README/Dashboard.png" width="250">
+</p>
+<p align="center">
+  <img src="assets/README/Dietary.png" width="250">
+  <img src="assets/README/AI_Vision.png" width="250">
+  <img src="assets/README/Medication.png" width="250">
+</p>
+<p align="center">
+  <img src="assets/README/Activity.png" width="250">
+  <img src="assets/README/Reward.png" width="250">
+</p>
 
 ## Tech Stack
-
-**Client:** Flutter,
-
-**Server:** Supabase, n8n, OpenAI API
-
+- **Client:** Flutter
+- **Server:** Supabase, n8n, OpenAI API
 
 ## Installation
-
-Install Glucose copilot with flutter
+Install **Glucose Copilot** with Flutter:
 
 ```bash
 git clone https://github.com/iforce428/Glucose_Copilot.git
-cd <PATH>/Glucose_Copilot
+cd Glucose_Copilot
 flutter pub get
 flutter run
 ```
