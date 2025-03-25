@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:flutter/cupertino.dart';
+import 'food_scanner_screen.dart';
 
 class DietaryScreen extends StatelessWidget {
   const DietaryScreen({super.key});
@@ -16,7 +17,7 @@ class DietaryScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _buildHeader(context),
-              _buildGlucoseChart(),
+              _buildGlucoseChart(context),
               _buildLastReading(),
               _buildRecommendedDinner(),
               const SizedBox(height: 80), // Space for bottom navigation
@@ -139,7 +140,7 @@ class DietaryScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildGlucoseChart() {
+  Widget _buildGlucoseChart(BuildContext context) {
     return Container(
       padding: const EdgeInsets.fromLTRB(12.0, 7.0, 12.0, 0.0),
       child: Column(
@@ -150,7 +151,14 @@ class DietaryScreen extends StatelessWidget {
             children: [
               _buildTitleSection(),
               CupertinoButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const FoodScannerScreen(),
+                    ),
+                  );
+                },
                 color: const Color(0xFF0ABAB5),
                 padding: const EdgeInsets.symmetric(
                   horizontal: 12,
@@ -512,7 +520,7 @@ class DietaryScreen extends StatelessWidget {
               children: [
                 _buildFoodCard(
                   title: 'Grilled Salmon',
-                  imageUrl: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Green_Stack__Copy_-Va1JP5UNFOLh8TLrXWOTkh79vjnbhs.png',
+                  imageUrl: 'https://media.canva.com/v2/files/uri:ifs%3A%2F%2FM%2FVAtdQkPXVySIXzJTz-v9CAdbEIuxMNBZSeXg0ODCoj4.jpg?csig=AAAAAAAAAAAAAAAAAAAAAC4K-3k5S_WNOuvy5UbCV-_Ie2HedQ5PoxFyyUUwoQyM&exp=1742878258&signer=media-rpc&token=AAIAAU0AL1ZBdGRRa1BYVnlTSVh6SlR6LXY5Q0FkYkVJdXhNTkJaU2VYZzBPRENvajQuanBnAAAAAAGVy6OzUIrkziH2Etj4EnOJv-rpRtzPWUZQYrKfjtCyZ1R91WJs',
                   benefits: const [
                     'Protein-based meal → Slower glucose rise',
                     'Fiber from vegetables → Better digestion',
@@ -522,7 +530,7 @@ class DietaryScreen extends StatelessWidget {
                 const SizedBox(width: 12),
                 _buildFoodCard(
                   title: 'Salad',
-                  imageUrl: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Green_Stack__Copy_-Va1JP5UNFOLh8TLrXWOTkh79vjnbhs.png',
+                  imageUrl: 'https://media.canva.com/v2/files/uri:ifs%3A%2F%2FM%2Fup2yPEs5GsKO1DLJMYzfRee46OYIGKu8c4BpIsGKmrM.jpg?csig=AAAAAAAAAAAAAAAAAAAAAM736mJt8uN3piQBp4eD3ihSYG9oSHL9ULlm2Pw5QGYK&exp=1742879296&signer=media-rpc&token=AAIAAU0AL3VwMnlQRXM1R3NLTzFETEpNWXpmUmVlNDZPWUlHS3U4YzRCcElzR0ttck0uanBnAAAAAAGVy7OKABwW7_4XNe_wPmogCXAmb2PTdOW8ORtMoH14YeVg71U3',
                   benefits: const [
                     'Protein-based meal → Slower glucose rise',
                     'Fiber from vegetables → Better digestion',
@@ -532,7 +540,7 @@ class DietaryScreen extends StatelessWidget {
                 const SizedBox(width: 12),
                 _buildFoodCard(
                   title: 'Chicken Stir Fry',
-                  imageUrl: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Green_Stack__Copy_-Va1JP5UNFOLh8TLrXWOTkh79vjnbhs.png',
+                  imageUrl: 'https://th.bing.com/th/id/OIP.vl31rU5tNy4G1PejK9MHHQHaLH?rs=1&pid=ImgDetMain',
                   benefits: const [
                     'Lean protein → Supports muscle growth',
                     'Low in carbs → Helps maintain glucose levels',

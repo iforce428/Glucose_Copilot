@@ -52,7 +52,7 @@ class _MedicationScreenState extends State<MedicationScreen> with SingleTickerPr
               mainAxisSize: MainAxisSize.min,
               children: [
                 Image.network(
-                  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Green_Stack__Copy_-Um5OkgmWltWoQCzUnOJRBT0sUfIbMv.png',
+                  'https://th.bing.com/th/id/OIP.-QPb5deL25Hl6j_sG88pIQHaDs?rs=1&pid=ImgDetMain',
                   height: 100,
                   fit: BoxFit.cover,
                 ),
@@ -845,17 +845,17 @@ Widget _buildMedicationInformation() {
     {
       'name': 'Metformin',
       'imageUrl':
-          'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Green_Stack__Copy_-Um5OkgmWltWoQCzUnOJRBT0sUfIbMv.png',
+          'https://th.bing.com/th/id/OIP.-QPb5deL25Hl6j_sG88pIQHaDs?rs=1&pid=ImgDetMain',
     },
     {
       'name': 'Aspirin',
       'imageUrl':
-          'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Green_Stack__Copy_-Um5OkgmWltWoQCzUnOJRBT0sUfIbMv.png',
+          'https://www.gosupps.com/media/catalog/product/7/1/71sFt1-svKL.jpg',
     },
     {
       'name': 'Ibuprofen',
       'imageUrl':
-          'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Green_Stack__Copy_-Um5OkgmWltWoQCzUnOJRBT0sUfIbMv.png',
+          'https://th.bing.com/th/id/OIP.o4DFJjJHLWfxMZK6WvFXeQHaHa?rs=1&pid=ImgDetMain',
     },
   ];
 

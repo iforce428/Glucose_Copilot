@@ -537,7 +537,7 @@ class HomeScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(16),
                     image: const DecorationImage(
                       image: NetworkImage(
-                        'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Green_Stack__Copy_-xKuJHGMpQJhDWGTDBewqwzwSmT6yCs.png',
+                        'https://media.canva.com/v2/files/uri:ifs%3A%2F%2FM%2FsQztYvq2DDC4QT1RHJCHegrFXEyz64_55kIBDBdxOcg.jpg?csig=AAAAAAAAAAAAAAAAAAAAAGPQgAIuWWLre_muKsVF6Ho37j3pWuAFIv5jCMtrPaf8&exp=1742879643&signer=media-rpc&token=AAIAAU0AL3NRenRZdnEyRERDNFFUMVJISkNIZWdyRlhFeXo2NF81NWtJQkRCZHhPY2cuanBnAAAAAAGVy7jVeDOJ5N-gFKqp6zhIBmS54iNlSfBfZ30ILQSucdIPZTEg',
                       ),
                       fit: BoxFit.cover,
                     ),
@@ -596,9 +596,53 @@ class HomeScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(16),
                     image: const DecorationImage(
                       image: NetworkImage(
-                        'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Green_Stack__Copy_-xKuJHGMpQJhDWGTDBewqwzwSmT6yCs.png',
+                        'https://media-public.canva.com/F5iDo/MAFlUKF5iDo/1/s.jpg',
                       ),
                       fit: BoxFit.cover,
+                    ),
+                  ),
+                  child: Container(
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16),
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          Colors.transparent,
+                          Colors.black.withOpacity(0.7),
+                        ],
+                      ),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        const Text(
+                          'More Accurate Health\nManagement with AI',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        ElevatedButton(
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.white,
+                            foregroundColor: Colors.black,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 16,
+                              vertical: 8,
+                            ),
+                          ),
+                          child: const Text('Start'),
+                        ),
+                      ],
                     ),
                   ),
                 ),
