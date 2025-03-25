@@ -1,42 +1,51 @@
+
 # Glucose Copilot
+Introducing Glucose CoPilot! An AI-powered mobile app for diabetic patient support in Malaysia. Glucose CoPilot integrates three expert agents for an effective yet holistic disease management approach. The core AI assistant provides real-time insights and personalized recommendations for users. Knowing exactly when and how to treat diabetics in the most suitable way.
 
-Glucose Copilot is a **health tracking app** that helps users **monitor glucose levels, log meals, track activities, and set medication reminders**. The app is built using **Flutter**, with **Supabase** as the backend and **n8n** for workflow automation.
 
-## 📱 App Icon & Screenshots
 
-### App Icon
-![App Icon](assets/Glucose Copilot.png)
+## Features
+- Monitor live glucose
+- Personal AI-powered meal planning system
+- AI  vision system for detecting food's glycemic level
+- AI-powered physical activity planner
+- AI-powered medication tracker, reminder, and consultant
+- Gamification for user retention using reward redemption
 
-### App UI
-![App UI](assets/UI.png)
 
----
+## Screenshots
 
-## 🏥 Features
+![App Screenshot](assets/README/Loading_Page.png)
+![App Screenshot](assets/README/CGM.png)
+![App Screenshot](assets/README/Dashboard.png)
+![App Screenshot](assets/README/Dietary.png)
+![App Screenshot](assets/README/AI_Vision.png)
+![App Screenshot](assets/README/Medication.png)
+![App Screenshot](assets/README/Activity.png)
+![App Screenshot](assets/README/Reward.png)
 
-✅ **Glucose Monitoring** – Track and visualize glucose level trends.  
-✅ **Meal Logging** – Record meals with glycemic index and nutritional info.  
-✅ **Activity Tracking** – Log exercise and earn health-based rewards.  
-✅ **Medication Reminders** – Get notified when it's time to take medication.  
-✅ **Secure Authentication** – Powered by **Supabase Auth**.  
-✅ **Automated Workflows** – **n8n** handles health-related automation.
 
----
+## Tech Stack
 
-## 🚀 Tech Stack
+**Client:** Flutter,
 
-| Technology  | Purpose |
-|-------------|---------|
-| **Flutter**  | Frontend (UI) |
-| **Supabase** | Authentication & Database |
-| **n8n**      | Workflow Automation |
-| **OpenAI API** | AI-powered insights |
+**Server:** Supabase, n8n, OpenAI API
 
----
 
-## 🛠️ Installation Guide
+## Installation
 
-### 1️⃣ Clone the Repository
-```sh
-git clone https://github.com/your-username/glucose-copilot.git
-cd glucose-copilot
+Install Glucose copilot with flutter
+
+```bash
+git clone https://github.com/iforce428/Glucose_Copilot.git
+cd <PATH>/Glucose_Copilot
+flutter pub get
+flutter run
+```
+
+## Dependencies
+-   http: ^0.13.5
+- fl_chart: ^0.70.2
+- percent_indicator: ^4.2.3
+- timeline_tile: ^2.0.0
+- image_picker: ^1.1.2
