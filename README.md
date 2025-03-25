@@ -14,12 +14,14 @@ Introducing **Glucose CoPilot**! An AI-powered mobile app for diabetic patient s
 <p align="center">
   <img src="assets/README/Loading_Page.png" width="250" height="500">
   <img src="assets/README/CGM.png" width="250" height="500">
+</p>
+<p align="center">
   <img src="assets/README/Dashboard.png" width="250" height="500">
+  <img src="assets/README/Medication.png" width="250" height="500">
 </p>
 <p align="center">
   <img src="assets/README/Dietary.png" width="250" height="500">
   <img src="assets/README/AI_Vision.png" width="250" height="500">
-  <img src="assets/README/Medication.png" width="250" height="500">
 </p>
 <p align="center">
   <img src="assets/README/Activity.png" width="250" height="500">
